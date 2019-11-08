@@ -27,7 +27,7 @@ From: ubuntu:bionic
 %post
     sed -i 's/main/main restricted universe/g' /etc/apt/sources.list
     apt-get update && apt-get -y upgrade
-    DEBIAN_FRONTEND=noninteractive apt-get -y install build-essential git python3-dev python3-pip python3-tk python3-lxml python3-six cmake libtool autoconf pkg-config
+    DEBIAN_FRONTEND=noninteractive apt-get -y install build-essential git libsm6 libxext6 libxrender-dev python3-dev python3-pip python3-tk python3-lxml python3-six cmake libtool autoconf pkg-config
 
     pip3 install -U pip==9.0.1
     export PATH=/usr/local/bin/:$PATH
