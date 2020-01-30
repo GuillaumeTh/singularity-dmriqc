@@ -1,8 +1,13 @@
 BootStrap: docker
 From: scilus/docker-vtk-8.2.0:latest
 
+%environment
+    export PYTHONPATH=/usr/lib/x86_64-linux-gnu/python3.6/site-packages/:/usr/bin/:$PYTHONPATH
+    export LD_LIBRARY_PATH=/usr/bin/:LD_LIBRARY_PATH
+
 %post
     pip3 install git+https://github.com/GuillaumeTh/dmriqcpy.git
+    pip3 uninstall -y vtk
 
     # Use offscreen backend
     echo "backend : Agg" > /usr/local/lib/python3.6/dist-packages/matplotlib/mpl-data/matplotlibrc
